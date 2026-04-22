@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router';
 import LandingPage from './pages/LandingPage';
+import DemoAccess from './pages/DemoAccess';
 import { Layout } from './components/Layout';
 import Dashboard from './pages/Dashboard';
 import Contacts from './pages/Contacts';
@@ -86,6 +87,7 @@ export const router = createBrowserRouter([
     Component: Layout,
     children: [
       { index: true, Component: LandingPage },
+      { path: 'demo-access', Component: DemoAccess },
       { path: 'dashboard', Component: Dashboard },
       { path: 'sales', Component: Sales },
       { path: 'leads', Component: Leads },
