@@ -241,9 +241,11 @@ export default function DemoAccess() {
   if (loading) return <LoadingScreen c={c} />;
 
   return (
-    <div className="flex min-h-screen bg-[#050c1a]">
+    <div className="flex min-h-screen items-center justify-center bg-[#050c1a] px-6 py-12">
+      <div className="w-full max-w-5xl">
+      <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-16">
       {/* Left column — form */}
-      <div className="flex w-full flex-col justify-center px-8 py-12 lg:w-1/2 lg:px-16">
+      <div className="w-full lg:max-w-md lg:flex-shrink-0">
         {/* Back link */}
         <Link
           to="/"
@@ -379,7 +381,7 @@ export default function DemoAccess() {
       </div>
 
       {/* Right column — metadata */}
-      <div className="hidden flex-col justify-center px-12 lg:flex lg:w-1/2">
+      <div className="hidden lg:flex lg:flex-1 lg:flex-col lg:pt-16">
         <div className="max-w-sm space-y-8">
           {/* Metadata rows */}
           {[
@@ -445,6 +447,8 @@ export default function DemoAccess() {
             </Link>
           </div>
         </div>
+      </div>
+      </div>
       </div>
     </div>
   );
