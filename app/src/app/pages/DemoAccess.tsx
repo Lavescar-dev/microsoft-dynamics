@@ -243,10 +243,8 @@ export default function DemoAccess() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#050c1a] px-6 py-12">
       <div className="w-full max-w-5xl">
-      <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-16">
-      {/* Left column — form */}
-      <div className="w-full lg:max-w-md lg:flex-shrink-0">
-        {/* Back link */}
+
+        {/* ── Header (full-width) ── */}
         <Link
           to="/"
           className="mb-10 flex w-fit items-center gap-1.5 text-xs font-medium text-gray-400 transition-colors hover:text-white"
@@ -255,8 +253,7 @@ export default function DemoAccess() {
           {c.back}
         </Link>
 
-        {/* Logo + Badge */}
-        <div className="mb-6 flex items-center gap-3">
+        <div className="mb-2 flex items-center gap-3">
           <div
             className="flex h-9 w-9 items-center justify-center rounded"
             style={{ background: 'linear-gradient(135deg, #0B71C7 0%, #37BEF3 100%)' }}
@@ -276,179 +273,160 @@ export default function DemoAccess() {
           </span>
         </div>
 
-        <h1 className="text-2xl font-bold text-white">{c.title}</h1>
-        <p className="mt-2 max-w-sm text-sm text-gray-400">{c.subtitle}</p>
+        <h1 className="mt-4 text-2xl font-bold text-white">{c.title}</h1>
+        <p className="mt-2 max-w-lg text-sm text-gray-400">{c.subtitle}</p>
 
-        {/* Form card */}
-        <div
-          className="mt-8 rounded-xl p-6"
-          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
-        >
-          <p className="mb-1 text-sm font-semibold text-white">{c.formTitle}</p>
-          <p className="mb-5 text-xs text-gray-500">{c.formDesc}</p>
+        {/* ── Two-column body ── */}
+        <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Name */}
-            <div>
-              <label className="mb-1.5 flex items-center gap-1.5 text-xs font-medium text-gray-300">
-                <User size={12} className="text-gray-500" />
-                {c.fieldName}
-              </label>
-              <input
-                ref={nameRef}
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder={c.fieldNamePlaceholder}
-                className="w-full rounded-md px-3 py-2 text-sm text-white placeholder-gray-600 outline-none transition-all"
-                style={{
-                  background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                }}
-                onFocus={(e) => (e.target.style.borderColor = '#0B71C7')}
-                onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
-              />
-            </div>
+          {/* Form card */}
+          <div
+            className="w-full rounded-xl p-6 lg:max-w-sm lg:flex-shrink-0"
+            style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+          >
+            <p className="mb-1 text-sm font-semibold text-white">{c.formTitle}</p>
+            <p className="mb-5 text-xs text-gray-500">{c.formDesc}</p>
 
-            {/* Email */}
-            <div>
-              <label className="mb-1.5 flex items-center gap-1.5 text-xs font-medium text-gray-300">
-                <Mail size={12} className="text-gray-500" />
-                {c.fieldEmail}
-              </label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder={c.fieldEmailPlaceholder}
-                className="w-full rounded-md px-3 py-2 text-sm text-white placeholder-gray-600 outline-none transition-all"
-                style={{
-                  background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                }}
-                onFocus={(e) => (e.target.style.borderColor = '#0B71C7')}
-                onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
-              />
-            </div>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="mb-1.5 flex items-center gap-1.5 text-xs font-medium text-gray-300">
+                  <User size={12} className="text-gray-500" />
+                  {c.fieldName}
+                </label>
+                <input
+                  ref={nameRef}
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder={c.fieldNamePlaceholder}
+                  className="w-full rounded-md px-3 py-2 text-sm text-white placeholder-gray-600 outline-none transition-all"
+                  style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
+                  onFocus={(e) => (e.target.style.borderColor = '#0B71C7')}
+                  onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
+                />
+              </div>
 
-            {/* Organization */}
-            <div>
-              <label className="mb-1.5 flex items-center gap-1.5 text-xs font-medium text-gray-300">
-                <Building2 size={12} className="text-gray-500" />
-                {c.fieldOrg}
-              </label>
-              <input
-                type="text"
-                value={org}
-                onChange={(e) => setOrg(e.target.value)}
-                placeholder={c.fieldOrgPlaceholder}
-                className="w-full rounded-md px-3 py-2 text-sm text-white placeholder-gray-600 outline-none transition-all"
-                style={{
-                  background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                }}
-                onFocus={(e) => (e.target.style.borderColor = '#0B71C7')}
-                onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
-              />
-            </div>
+              <div>
+                <label className="mb-1.5 flex items-center gap-1.5 text-xs font-medium text-gray-300">
+                  <Mail size={12} className="text-gray-500" />
+                  {c.fieldEmail}
+                </label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder={c.fieldEmailPlaceholder}
+                  className="w-full rounded-md px-3 py-2 text-sm text-white placeholder-gray-600 outline-none transition-all"
+                  style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
+                  onFocus={(e) => (e.target.style.borderColor = '#0B71C7')}
+                  onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
+                />
+              </div>
 
-            <AnimatePresence>
-              {error && (
-                <motion.p
-                  initial={{ opacity: 0, y: -4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0 }}
-                  className="text-xs text-red-400"
+              <div>
+                <label className="mb-1.5 flex items-center gap-1.5 text-xs font-medium text-gray-300">
+                  <Building2 size={12} className="text-gray-500" />
+                  {c.fieldOrg}
+                </label>
+                <input
+                  type="text"
+                  value={org}
+                  onChange={(e) => setOrg(e.target.value)}
+                  placeholder={c.fieldOrgPlaceholder}
+                  className="w-full rounded-md px-3 py-2 text-sm text-white placeholder-gray-600 outline-none transition-all"
+                  style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
+                  onFocus={(e) => (e.target.style.borderColor = '#0B71C7')}
+                  onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
+                />
+              </div>
+
+              <AnimatePresence>
+                {error && (
+                  <motion.p
+                    initial={{ opacity: 0, y: -4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="text-xs text-red-400"
+                  >
+                    {error}
+                  </motion.p>
+                )}
+              </AnimatePresence>
+
+              <button
+                type="submit"
+                className="mt-1 flex w-full items-center justify-center gap-2 rounded-md py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                style={{ background: 'linear-gradient(135deg, #0B71C7 0%, #37BEF3 100%)' }}
+              >
+                <Zap size={14} />
+                {c.cta}
+                <ArrowRight size={14} />
+              </button>
+            </form>
+          </div>
+
+          {/* Metadata — aligns with form card */}
+          <div className="hidden space-y-7 lg:block lg:flex-1 lg:pt-2">
+            {[
+              { icon: <DatabaseZap size={15} />, label: c.flowLabel, value: c.flowValue },
+              { icon: <ShieldCheck size={15} />, label: c.windowLabel, value: c.windowValue },
+            ].map(({ icon, label, value }) => (
+              <div key={label} className="flex gap-4">
+                <div
+                  className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded"
+                  style={{ background: 'rgba(11,113,199,0.15)', color: '#37BEF3' }}
                 >
-                  {error}
-                </motion.p>
-              )}
-            </AnimatePresence>
+                  {icon}
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-gray-500">{label}</p>
+                  <p className="mt-1 text-sm text-gray-300">{value}</p>
+                </div>
+              </div>
+            ))}
 
-            <button
-              type="submit"
-              className="mt-1 flex w-full items-center justify-center gap-2 rounded-md py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-              style={{ background: 'linear-gradient(135deg, #0B71C7 0%, #37BEF3 100%)' }}
-            >
-              <Zap size={14} />
-              {c.cta}
-              <ArrowRight size={14} />
-            </button>
-          </form>
-        </div>
-
-        <p className="mt-6 text-xs text-gray-600">{c.disclaimer}</p>
-      </div>
-
-      {/* Right column — metadata */}
-      <div className="hidden lg:flex lg:flex-1 lg:flex-col lg:pt-16">
-        <div className="max-w-sm space-y-8">
-          {/* Metadata rows */}
-          {[
-            { icon: <DatabaseZap size={15} />, label: c.flowLabel, value: c.flowValue },
-            { icon: <ShieldCheck size={15} />, label: c.windowLabel, value: c.windowValue },
-          ].map(({ icon, label, value }) => (
-            <div key={label} className="flex gap-4">
+            <div className="flex gap-4">
               <div
                 className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded"
                 style={{ background: 'rgba(11,113,199,0.15)', color: '#37BEF3' }}
               >
-                {icon}
+                <LayoutDashboard size={15} />
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-gray-500">{label}</p>
-                <p className="mt-1 text-sm text-gray-300">{value}</p>
-              </div>
-            </div>
-          ))}
-
-          {/* Recommended path */}
-          <div className="flex gap-4">
-            <div
-              className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded"
-              style={{ background: 'rgba(11,113,199,0.15)', color: '#37BEF3' }}
-            >
-              <LayoutDashboard size={15} />
-            </div>
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-gray-500">{c.pathLabel}</p>
-              <div className="mt-2 flex flex-wrap items-center gap-1.5">
-                {c.pathNodes.map((node, i) => (
-                  <span key={node} className="flex items-center gap-1.5">
-                    <span
-                      className="rounded px-2 py-0.5 text-xs font-medium text-white"
-                      style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)' }}
-                    >
-                      {node}
+                <p className="text-xs font-semibold uppercase tracking-widest text-gray-500">{c.pathLabel}</p>
+                <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                  {c.pathNodes.map((node, i) => (
+                    <span key={node} className="flex items-center gap-1.5">
+                      <span
+                        className="rounded px-2 py-0.5 text-xs font-medium text-white"
+                        style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)' }}
+                      >
+                        {node}
+                      </span>
+                      {i < c.pathNodes.length - 1 && (
+                        <ChevronRight size={11} className="text-gray-600" />
+                      )}
                     </span>
-                    {i < c.pathNodes.length - 1 && (
-                      <ChevronRight size={11} className="text-gray-600" />
-                    )}
-                  </span>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Divider */}
-          <div
-            className="h-px w-full"
-            style={{ background: 'rgba(255,255,255,0.06)' }}
-          />
+            <div className="h-px w-full" style={{ background: 'rgba(255,255,255,0.06)' }} />
 
-          {/* Quick link */}
-          <div className="flex items-center justify-between">
-            <span className="text-xs text-gray-600">Skip to workspace directly</span>
-            <Link
-              to="/dashboard"
-              className="flex items-center gap-1 text-xs font-medium text-[#0B71C7] transition-colors hover:text-[#37BEF3]"
-            >
-              Open Dashboard <ArrowRight size={11} />
-            </Link>
+            <div className="flex items-center justify-between">
+              <span className="text-xs text-gray-600">Skip to workspace directly</span>
+              <Link
+                to="/dashboard"
+                className="flex items-center gap-1 text-xs font-medium text-[#0B71C7] transition-colors hover:text-[#37BEF3]"
+              >
+                Open Dashboard <ArrowRight size={11} />
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-      </div>
+
+        <p className="mt-6 text-xs text-gray-600">{c.disclaimer}</p>
       </div>
     </div>
   );
