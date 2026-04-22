@@ -1,0 +1,4 @@
+/* Microsoft Dynamics 365 uses Segoe UI as primary font */
+body {
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
