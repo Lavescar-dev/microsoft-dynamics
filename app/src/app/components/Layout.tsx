@@ -6,7 +6,7 @@ import { ShellProvider } from '../shell/ShellProvider';
 export function Layout() {
   const { pathname } = useLocation();
 
-  if (pathname === '/') {
+  if (pathname === '/' || pathname === '/demo-access') {
     return (
       <div className="h-screen overflow-y-auto">
         <Outlet />

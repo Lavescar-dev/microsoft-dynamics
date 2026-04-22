@@ -371,7 +371,7 @@ function Navbar({ c }: { c: Content['nav'] }) {
           </div>
 
           {/* Explore CTA */}
-          <Link to="/dashboard">
+          <Link to="/demo-access">
             <button
               className="flex items-center gap-2 rounded px-4 py-2 text-sm font-semibold transition-all duration-200"
               style={
@@ -474,7 +474,7 @@ function Hero({ c }: { c: Content['hero'] }) {
             </motion.p>
 
             <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center gap-4">
-              <Link to="/dashboard">
+              <Link to="/demo-access">
                 <button
                   className="flex items-center gap-2 rounded px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:opacity-90"
                   style={{ background: '#0B71C7' }}
@@ -878,7 +878,7 @@ function FinalCta({ c }: { c: Content['cta'] }) {
           {c.subtitle}
         </motion.p>
         <motion.div variants={fadeUp} className="mt-8 flex flex-wrap justify-center gap-4">
-          <Link to="/dashboard">
+          <Link to="/demo-access">
             <button
               className="flex items-center gap-2.5 rounded px-7 py-3.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
               style={{ background: 'linear-gradient(135deg, #0B71C7 0%, #37BEF3 100%)' }}
@@ -922,7 +922,7 @@ function Footer({ c }: { c: Content['footer'] }) {
           <span className="text-xs text-gray-400">by Microsoft</span>
         </div>
         <p className="text-xs text-gray-400">{c.disclaimer}</p>
-        <Link to="/dashboard" className="text-xs font-medium text-[#0B71C7] hover:underline">
+        <Link to="/demo-access" className="text-xs font-medium text-[#0B71C7] hover:underline">
           {c.enter}
         </Link>
       </div>
