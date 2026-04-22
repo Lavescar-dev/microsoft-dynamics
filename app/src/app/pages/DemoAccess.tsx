@@ -8,6 +8,8 @@ import {
   CheckCircle2,
   ChevronRight,
   DatabaseZap,
+  Globe,
+  Layers,
   LayoutDashboard,
   Loader2,
   Mail,
@@ -37,6 +39,10 @@ const CONTENT = {
     fieldOrg: 'Company or Team',
     fieldOrgPlaceholder: 'Contoso Ltd.',
     cta: 'Bootstrap Session',
+    scopeLabel: 'Scope',
+    scopeValue: 'All 9 Dynamics 365 modules available — Sales, Marketing, Service, Field Service, Finance, and more.',
+    envLabel: 'Environment',
+    envValue: 'Interactive sandbox — all data changes are scoped to this session.',
     flowLabel: 'Flow',
     flowValue: 'Identity capture → session bootstrap → workspace handoff.',
     windowLabel: 'Window',
@@ -80,6 +86,10 @@ const CONTENT = {
     fieldOrg: 'Şirket veya Ekip',
     fieldOrgPlaceholder: 'Contoso Ltd.',
     cta: 'Oturumu Başlat',
+    scopeLabel: 'Kapsam',
+    scopeValue: '9 Dynamics 365 modülünün tamamı mevcut — Satış, Pazarlama, Servis, Saha Hizmeti, Finans ve daha fazlası.',
+    envLabel: 'Ortam',
+    envValue: 'Etkileşimli sandbox — tüm veri değişiklikleri bu oturuma özgüdür.',
     flowLabel: 'Akış',
     flowValue: 'Kimlik yakalama → oturum başlatma → çalışma alanı devri.',
     windowLabel: 'Pencere',
@@ -277,7 +287,7 @@ export default function DemoAccess() {
         <p className="mt-2 max-w-lg text-sm text-gray-400">{c.subtitle}</p>
 
         {/* ── Two-column body ── */}
-        <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
+        <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:items-end lg:gap-12">
 
           {/* Form card */}
           <div
@@ -366,8 +376,10 @@ export default function DemoAccess() {
           </div>
 
           {/* Metadata — aligns with form card */}
-          <div className="hidden space-y-7 lg:block lg:flex-1 lg:pt-2">
+          <div className="hidden space-y-7 lg:block lg:flex-1">
             {[
+              { icon: <Layers size={15} />, label: c.scopeLabel, value: c.scopeValue },
+              { icon: <Globe size={15} />, label: c.envLabel, value: c.envValue },
               { icon: <DatabaseZap size={15} />, label: c.flowLabel, value: c.flowValue },
               { icon: <ShieldCheck size={15} />, label: c.windowLabel, value: c.windowValue },
             ].map(({ icon, label, value }) => (
